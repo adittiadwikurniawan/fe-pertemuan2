@@ -1,8 +1,8 @@
 import React from 'react';
-import TodoCachedApp from './cached/components/TodoCachedApp';
+import TodoCachedApp from './components/TodoCachedApp';
 import { getTodos } from '@/lib/todos';
 
-export default async function TodoPage() {
+export default async function CachedPage() {
   const todos = await getTodos();
 
   return (
@@ -21,3 +21,4 @@ export default async function TodoPage() {
     </main>
   );
 }
+
