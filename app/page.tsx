@@ -1,6 +1,6 @@
 import React from 'react';
-import TodoForm from './components/TodoForm';
-import TodoList from './components/TodoList';
+import TodoForm from './task/[id]/components/TodoForm';
+import TodoList from './task/[id]/components/TodoList';
 import { getTodos } from '@/lib/todos';
 
 export default async function TodoPage() {
