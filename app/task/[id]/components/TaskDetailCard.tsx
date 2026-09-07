@@ -1,12 +1,18 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import { Todo } from '@/types/todo';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 
 type TaskDetailCardProps = {
   todo: Todo;
 };
 
-export default function TaskDetailCard({ todo }: TaskDetailCardProps) {
+export default function TaskDetailCard({ todo: initialTodo }: TaskDetailCardProps) {
+  const [cachedTodos] = useLocalStorage<Todo[]>('TODO_LIST_CACHE', [initialTodo]);
+  const todo = cachedTodos.find((item) => item.id === initialTodo.id) ?? initialTodo;
+
   return (
     <main className="min-h-screen p-8 bg-gray-100">
       <div className="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg border border-gray-100">
